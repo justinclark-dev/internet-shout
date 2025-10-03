@@ -20,26 +20,16 @@
 
 const internetShout = (message) => {
     const charArr = [...message]
+    let newMsg = ''
     for (const char of charArr) {
-        
         const checkLetter = char.toLowerCase().match(/[a-z]/)
         const isLetter = checkLetter != null && checkLetter[0] === char
         if (isLetter) {
             const randomNumber = Math.floor(Math.random() * 2) + 1
-            //if randomNumber===1 ? char.toUpperCase() : char.toUpperCase()
-            if (randomNumber===1) {
-                //
-                char.toUpperCase()
-            } else {
-                char.toUpperCase()
-            }
-            // console.log(randomNumber)
-            // console.log(char)
+            randomNumber===1 ? newMsg += char.toLowerCase() : newMsg += char.toUpperCase()  
         }
-        
-        
-        // console.log(char)
     }
+    console.log(newMsg)
 }
 
 

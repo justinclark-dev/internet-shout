@@ -21,8 +21,35 @@
 const internetShout = (message) => {
     const charArr = [...message]
     for (const char of charArr) {
-        console.log(char.toLowerCase().match(/[a-z]/))
+        
+        const checkLetter = char.toLowerCase().match(/[a-z]/)
+        const isLetter = checkLetter != null && checkLetter[0] === char
+        if (isLetter) {
+            const randomNumber = Math.floor(Math.random() * 2) + 1
+            //if randomNumber===1 ? char.toUpperCase() : char.toUpperCase()
+            if (randomNumber===1) {
+                //
+                char.toUpperCase()
+            } else {
+                char.toUpperCase()
+            }
+            // console.log(randomNumber)
+            // console.log(char)
+        }
+        
+        
+        // console.log(char)
     }
 }
 
-internetShout('I aM fine.')
+
+// internetShout('abc123')
+internetShout('abcdefghijklmnopqrstuvwxyz')
+
+const randomNum = () => {
+    const rn = Math.floor(Math.random() * 2) + 1
+    console.log(rn)
+}
+
+// randomNum()
+

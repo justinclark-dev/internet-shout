@@ -25,8 +25,36 @@ const internetShout = (message) => {
         const checkLetter = char.toLowerCase().match(/[a-z]/)
         const isLetter = checkLetter != null && checkLetter[0] === char
         if (isLetter) {
-            const randomNumber = Math.floor(Math.random() * 2) + 1
-            randomNumber===1 ? newMsg += char.toLowerCase() : newMsg += char.toUpperCase()  
+            const randomNumber = Math.floor(Math.random() * 2)
+            if (randomNumber === 0) newMsg += char.toLowerCase()
+            else if (randomNumber === 1) newMsg += char.toUpperCase() 
+        } else { 
+            if (char === '?') {
+                const randomNumber = Math.floor(Math.random() * 5) + 1
+                for (let i=0; i<randomNumber; i++) {
+                    const randomYesNo = Math.floor(Math.random() * 2)
+                    if (randomYesNo === 0) {
+                        const randomQM = Math.floor(Math.random() * 2) + 1
+                        newMsg += '?'.repeat(randomQM)
+                    } else if (randomYesNo === 1) {
+                        const randomBangs = Math.floor(Math.random() * 2) + 1
+                        newMsg += '!'.repeat(randomBangs)
+                    }
+                }
+            }
+            if (char === '.') {
+                const randomNumber = Math.floor(Math.random() * 5) + 1
+                for (let i=0; i<randomNumber; i++) {
+                    const randomYesNo = Math.floor(Math.random() * 2)
+                    if (randomYesNo === 0) {
+                        const randomBangs2 = Math.floor(Math.random() * 2) + 1
+                        newMsg += '!'.repeat(randomBangs2)
+                    } else if (randomYesNo === 1) {
+                        const randomOnes = Math.floor(Math.random() * 2) + 1
+                        newMsg += '1'.repeat(randomOnes)
+                    }
+                }
+            }
         }
     }
     console.log(newMsg)
@@ -34,12 +62,14 @@ const internetShout = (message) => {
 
 
 // internetShout('abc123')
-internetShout('abcdefghijklmnopqrstuvwxyz')
+// internetShout('abcdefghijklmnopqrstuvwxyz')
+// internetShout('???...')
+internetShout('.')
 
 const randomNum = () => {
-    const rn = Math.floor(Math.random() * 2) + 1
+    const rn = Math.floor(Math.random() * 2)
     console.log(rn)
 }
 
-// randomNum()
+randomNum()
 

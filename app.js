@@ -19,11 +19,26 @@
 
 
 const internetShout = (message) => {
+    /*
+    Add word parsing:
     const charArr = [...message]
     let newMsg = ''
     for (const char of charArr) {
         const checkLetter = char.toLowerCase().match(/[a-z]/)
-        const isLetter = checkLetter != null && checkLetter[0] === char
+        const isLetter = checkLetter != null && checkLetter[0] === char.toLowerCase()
+        if (isLetter) {
+            const randomNumber = Math.floor(Math.random() * 2)
+            if (randomNumber === 0) newMsg += char.toLowerCase()
+            else if (randomNumber === 1) newMsg += char.toUpperCase() 
+        } else if (char === ' ') {
+            console.log('space')
+        }
+    }*/
+    const charArr = [...message]
+    let newMsg = ''
+    for (const char of charArr) {
+        const checkLetter = char.toLowerCase().match(/[a-z]/)
+        const isLetter = checkLetter != null && checkLetter[0] === char.toLowerCase()
         if (isLetter) {
             const randomNumber = Math.floor(Math.random() * 2)
             if (randomNumber === 0) newMsg += char.toLowerCase()
@@ -42,7 +57,7 @@ const internetShout = (message) => {
                     }
                 }
             }
-            if (char === '.') {
+            else if (char === '.') {
                 const randomNumber = Math.floor(Math.random() * 5) + 1
                 for (let i=0; i<randomNumber; i++) {
                     const randomYesNo = Math.floor(Math.random() * 2)
@@ -54,22 +69,20 @@ const internetShout = (message) => {
                         newMsg += '1'.repeat(randomOnes)
                     }
                 }
+            } else {
+                newMsg += char
             }
         }
     }
     console.log(newMsg)
 }
 
-
-// internetShout('abc123')
-// internetShout('abcdefghijklmnopqrstuvwxyz')
+// internetShout('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+internetShout('I am fine.')
+internetShout('Hello, how are you?')
+// internetShout('Abc123')
+// internetShout('Abcdefghijklmnopqrstuvwxyz')
 // internetShout('???...')
-internetShout('.')
+// internetShout('.')
 
-const randomNum = () => {
-    const rn = Math.floor(Math.random() * 2)
-    console.log(rn)
-}
-
-randomNum()
 
